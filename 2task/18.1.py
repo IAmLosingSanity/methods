@@ -27,18 +27,19 @@ def chord(a, b, eps):
     while abs(f(b)-f(a)) >= eps:
         a = a - f(a)*(b-a)/(f(b)-f(a))
         if f(a) == 0 or abs(f(a)) < eps:
-            print("Root found at x = ", a)
+            # print("Root found at x = ", a)
             return a
     print("No solution"); return -1
 
 # for i in range(b):
 #     print(i)
-#     chord(a, b, eps)
+#     bisection(a, b, eps)
 #     a = a + 1
 
 print(chord(0, 2, eps))
 print(chord(4, 5, eps))
 print(chord(7, 8, eps))
+print(chord(2, 4, eps))
 
 x = np.linspace(-2*np.pi, 2*np.pi, 1000)
 y = [f(i) for i in x]
