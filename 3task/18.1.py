@@ -33,12 +33,9 @@ print(newton(4, 5, eps))
 print(newton(7, 8, eps))
 
 #вышел за пределы отрезка
-print(newton(2, 4, eps))
+# print(newton(2, 4, eps))
 
-#первый попавшийся корень
-print(newton(0, 8, eps)) 
-
-x = np.linspace(-2*np.pi, 2*np.pi, 1000)
+x = np.linspace(-2.5*np.pi, 2.5*np.pi, 1000)
 y = [f(i) for i in x]
 
 plt.plot(x, y)
