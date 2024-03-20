@@ -1,7 +1,7 @@
 import math
 
 def f(x):
-    return x**2 / (x**2 + 1)**2
+    return x**2 / math.sqrt(9 - x**2)
 
 def trapezoidal_rule(a, b, n):
     h = (b - a) / n
