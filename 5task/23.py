@@ -12,8 +12,8 @@ def trapezoidal_rule(a, b, n):
     
     integral = h * s
 
-    abs_error = abs(integral - ((29 * math.atan(2.5) - 10) / 58))
-    rel_error = abs_error / abs((29 * math.atan(2.5) - 10) / 58)
+    abs_error = abs(integral - ((36 * math.asin(5/6) - 5 * math.sqrt(11))/8))
+    rel_error = abs_error / abs(((36 * math.asin(5/6) - 5 * math.sqrt(11))/8))
 
     return integral, abs_error, rel_error
 
