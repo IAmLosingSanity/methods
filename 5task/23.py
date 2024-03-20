@@ -1,3 +1,5 @@
+import math
+
 def f(x):
     return x**2 / (x**2 + 1)**2
 
@@ -8,11 +10,16 @@ def trapezoidal_rule(a, b, n):
     for i in range(1, n):
         s += f(a + i * h)
     
-    return h * s
+    integral = h * s
 
-a = 0
+    abs_error = abs(integral - ((29 * math.atan(2.5) - 10) / 58))
+    rel_error = abs_error / abs((29 * math.atan(2.5) - 10) / 58)
+
+    return integral, abs_error, rel_error
+
+a = 0.0
 b = 2.5
 n = 1000
 
-integral_value = trapezoidal_rule(a, b, n)
-print(f"Приближенное значение интеграла: {integral_value}")
+integral_value, abserr, relerr = trapezoidal_rule(a, b, n)
+print(f"Приближенное значение интеграла: {integral_value}, абсолютная погрешность: {abserr}, относительная погрешность: {relerr}")
