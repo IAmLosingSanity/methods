@@ -21,5 +21,5 @@ a = 0.0
 b = 2.5
 n = 1000
 
-integral_value, abserr, relerr = trapezoidal_rule(a, b, n)
-print(f"Приближенное значение интеграла: {integral_value}, абсолютная погрешность: {abserr}, относительная погрешность: {relerr}")
+integral_value, abs_err, rel_err = trapezoidal_rule(a, b, n)
+print(f"Приближенное значение интеграла: {integral_value}, абсолютная погрешность: {abs_err}, относительная погрешность: {rel_err}")
