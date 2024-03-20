@@ -11,7 +11,7 @@ def trapezoidal_rule(a, b, n):
     return h * s
 
 a = 0
-b = 2,5
+b = 2.5
 n = 1000
 
 integral_value = trapezoidal_rule(a, b, n)
