@@ -1,5 +1,9 @@
 def gauss_elimination(A, b):
     n = len(b)
+    if len(A) != n or len(A[0]) != n:
+        raise ValueError("Matrix A must be a square matrix")
+    if len(b) != n:
+        raise ValueError("Vector b must have the same length as A")
     
     # Forward Elimination
     for i in range(n):
@@ -16,13 +20,19 @@ def gauss_elimination(A, b):
         for j in range(i+1, n):
             x[i] -= A[i][j] / A[i][i] * x[j]
     
-    return x
+    # Check the solution
+    residual = [b_i - sum(x_i * A_i_j for x_i, A_i_j in zip(x, A_i)) for A_i, b_i in zip(A, b)]
+    solution_ok = all(abs(r) < 1e-10 for r in residual)
+    return x, solution_ok
 
 # Example usage
-A = [[2, 1, -1],
-     [-3, -1, 2],
-     [-2, 1, 2]]
-b = [8, -11, -3]
+A = [[6, 1, -1, 2],
+     [2, 14, -4, 5],
+     [4, 7, 16, 3],
+     [-7, 6, 3, 19]]
+b = [25, 90, -38, 33]
 
-result = gauss_elimination(A, b)
+result, ok = gauss_elimination(A, b)
 print(result)
+print(f"Solution ok: {ok}")
+
